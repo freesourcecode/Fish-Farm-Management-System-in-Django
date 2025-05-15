@@ -1,0 +1,46 @@
+<header class="header-desktop bg-primary text-light">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <div></div>
+                            <div class="header-button">
+                               
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            <img src="{{request.user.image.url}}" alt="{{request.session.username}}" />
+                                        </div>
+                                        <div class="content">
+                                            {{request.session.username | upper}}
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                        <img src="{{request.user.image.url}}" alt="{{user.username}}" />
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        {{user.username | capfirst}}
+                                                    </h5>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="{% url 'fmsapp:account_update' pk=user.pk %}">
+                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                </div>
+                                              
+                                            </div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="{% url 'fmsapp:logout' %}">
+                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>

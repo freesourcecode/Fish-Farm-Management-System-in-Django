@@ -1,0 +1,37 @@
+{% extends 'fmsapp/layout.html' %}
+{% load static %}
+{% block title %}
+Harvest Timeline
+{% endblock title %}
+
+{% block contents %}
+
+  <section class="container mt-2">
+
+    <div class="row ml-2 mr-2">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="card">
+          <div class="card-header">
+            {% comment %} <img src="{{staffer.image.url}}" width=70 height=70 class='rounded-circle img-fluid' alt=""> &nbsp; {{staffer.last_name}} - {{staffer.first_name}}
+            <small> {{staffer.mobile_number}} </small>  {% endcomment %}
+          </div>
+
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item"><label for="fname">Total Sold</label> <span class=" float-right label">{{harvest.number | capfirst}}</span></li>
+              <li class="list-group-item"><label for="fname">Dam Index:</label> <span class=" float-right label">{{harvest.dam | capfirst}}</span></li>
+              <li class="list-group-item"><label for="stipend">Amount:</label> <span class=" float-right label">{{harvest.amount}}</span></li>
+              <li class="list-group-item"><label for="mobile">Others:</label> <span class=" float-right label">{{harvest.others}}</span></li>
+              <li class="list-group-item"><label for="state">Date and Time:</label> <span class=" float-right label">{{harvest.created | capfirst}}</span></li>
+              <li class="list-group-item"><label for="country">Country:</label> <span class=" float-right label">{{harvest.updated | capfirst}}</span></li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a href="{% url 'fms:edit_harvest' pk=harvest.id %}" class="btn btn-block btn-info">Modify</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock contents  %}
